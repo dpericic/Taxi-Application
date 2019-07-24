@@ -12,11 +12,10 @@ import TrackDriver from "./routes/TrackDriver/TrackDriver";
 import AboutPage from "../components/AboutPage/AboutPage";
 import DrawerCustomization from "../components/misc/DrawerCustomization";
 import Splash from "../components/misc/Splash";
-import Login from "../components/Login/Login";
-import SignUp from "../components/SignUp/SignUp";
 import AuthConfirm from "../components/misc/AuthConfirm";
 import LogoutUser from "../components/misc/LogoutUser";
 import UserRegistration from "../components/misc/UserRegistration";
+import Authentication from "../components/Authentication/Authentication";
 
 const mainStackNavigator = createStackNavigator({
   Home: Home,
@@ -66,8 +65,7 @@ const rootNavigator = createSwitchNavigator(
   {
     Splash: Splash,
     AuthConfirm: AuthConfirm,
-    Login: Login,
-    SignUp: SignUp,
+    Authentication: Authentication,
     App: drawerNavigator,
     UserRegistration: UserRegistration
   },

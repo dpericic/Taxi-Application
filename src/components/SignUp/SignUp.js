@@ -75,6 +75,7 @@ export default class App extends React.Component {
   _handlePassword = password => this.setState({password});
 
   _signUp = async () => {
+    const { navigate } = this.props.navigation;
     const {email, password} = this.state;
     this.setState({loading: true});
 
@@ -83,7 +84,7 @@ export default class App extends React.Component {
       .createUserWithEmailAndPassword(email, password)
       .then(authUser => {
           this.setState({loading: false});
-          this.props.navigation.navigate('UserRegistration', {email: email});
+          navigate('UserRegistration', {email: email});
       })
       .catch(error => {
         this.setState({loading: false});
@@ -94,7 +95,7 @@ export default class App extends React.Component {
   _toggleLoading = () => {
     this.setState({loading: true});
 
-    setTimeout(() => this.props.navigation.navigate('Login'), 500);
+    setTimeout(() => this.props.navigation.navigate('Authentication'), 500);
   }
 
   render() {
@@ -184,7 +185,7 @@ export default class App extends React.Component {
           </AnimatedRipple>
           {this.state.loading && <ActivityIndicator style={{marginTop: 40}} size="large" color="#fff" />}
           <Text style={styles.bottomTextStyle}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => this._toggleLoading()} style={{marginBottom: 20, alignSelf: 'center', fontSize: 12}}><Text style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 'bold' }}>Sign in</Text></TouchableOpacity>
+          <Text style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 'bold', marginBottom: 20, alignSelf: 'center', fontSize: 16 }}>Swipe right to sign in</Text>
         </View>
         {/* Circle View */}
         <Animated.View style={[styles.authCircleStyle, {

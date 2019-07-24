@@ -14,7 +14,7 @@ export default class LogoutUser extends React.Component {
     _logoutUser = async () => {
       await AsyncStorage.removeItem('userToken');
   
-      this.props.navigation.navigate('Login');
+      this.props.navigation.navigate('Authentication');
     };
   
     render() {

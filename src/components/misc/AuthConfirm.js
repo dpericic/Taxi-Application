@@ -15,7 +15,7 @@ export default class AuthConfirm extends React.Component {
   _initAuth = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
 
-    this.props.navigation.navigate(userToken ? 'App' : 'Login');
+    this.props.navigation.navigate(userToken ? 'App' : 'Authentication');
   };
 
   render() {

@@ -105,8 +105,10 @@ export default class App extends React.Component {
       })
     ]).start();
 
+    const { navigate } = this.props.navigation;
+
     setTimeout(() => {
-      this.props.navigation.navigate('App');
+      navigate('App');
     }, 1700);
   }
 
@@ -232,7 +234,7 @@ export default class App extends React.Component {
           </AnimatedRipple>
           {this.state.loading && <ActivityIndicator style={{marginTop: 40}} size="large" color="#fff" />}
           <Text style={styles.bottomTextStyle}>Don't have account yet?</Text>
-          <TouchableOpacity onPress={() => this._toggleLoading()} style={{marginBottom: 20, alignSelf: 'center', fontSize: 12}}><Text style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 'bold' }}>Sign Up</Text></TouchableOpacity>
+          <Text style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 'bold', marginBottom: 20, alignSelf: 'center', fontSize: 16 }}>Swipe left to register</Text>
         </View>
         {/* Circle View */}
         <Animated.View style={[styles.authCircleStyle, {
